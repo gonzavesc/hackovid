@@ -9,14 +9,14 @@ class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return MyAppState();
+    return _MyAppState();
   }
 }
-class MyAppState extends State<MyApp> {
-  var questionIndex = 0;
-  void answerQuestion (){
+class _MyAppState extends State<MyApp> { // the _ in front of the name makes it private!!
+  var _questionIndex = 0;
+  void _answerQuestion (){
     setState(() {
-      questionIndex = questionIndex + 1;
+      _questionIndex = _questionIndex + 1;
     });
     print("Answer chosen");
   }
@@ -28,8 +28,8 @@ class MyAppState extends State<MyApp> {
       appBar: AppBar(
         title: Text("MyApp!"),
       ),
-      body: Column(children: <Widget>[Text(questions.elementAt(questionIndex)),  //same asd questions[0]
-      RaisedButton(child: Text("First option"), onPressed: answerQuestion,),
+      body: Column(children: <Widget>[Text(questions.elementAt(_questionIndex)),  //same asd questions[0]
+      RaisedButton(child: Text("First option"), onPressed: _answerQuestion,),
       RaisedButton(child: Text("Second option"), onPressed: () => print("Second chosen"),)],),
     ));
   }
