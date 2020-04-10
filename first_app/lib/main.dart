@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+
+import './question.dart';
 // void main(){
 //   runApp(MyApp());
 // }
@@ -28,7 +30,7 @@ class _MyAppState extends State<MyApp> { // the _ in front of the name makes it 
       appBar: AppBar(
         title: Text("MyApp!"),
       ),
-      body: Column(children: <Widget>[Text(questions.elementAt(_questionIndex)),  //same asd questions[0]
+      body: Column(children: <Widget>[Question(questions.elementAt(_questionIndex)),  //same asd questions[0]
       RaisedButton(child: Text("First option"), onPressed: _answerQuestion,),
       RaisedButton(child: Text("Second option"), onPressed: () => print("Second chosen"),)],),
     ));
