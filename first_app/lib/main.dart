@@ -27,8 +27,18 @@ class _MyAppState extends State<MyApp> {
   }
 
   var questions = [
-    "What is your favourite color?",
-    "What is your favourite animal?"
+    {
+      "questionText": "What is your favourite color?",
+      "answers": ["Blue", "Red", "Yellow", "White"]
+    },
+    {
+      "questionText": "What is your favourite animal?",
+      "answers": ["Tiger", "Snake", "Elephant", "Lion"]
+    },
+    {
+      "questionText": "What is your favourite instructor?",
+      "answers": ["Max", "Max", "Max", "Max"]
+    }
   ];
   @override
   Widget build(BuildContext context) {
@@ -43,10 +53,11 @@ class _MyAppState extends State<MyApp> {
       ),
       body: Column(
         children: <Widget>[
-          Question(questions.elementAt(_questionIndex)), //same asd questions[0]
-          Answer(_answerQuestion, "Answer 1"),
-          Answer(_answerQuestion, "Answer 2"),
-          Answer(_answerQuestion, "Answer 3")
+          Question(questions[_questionIndex]
+              ["questionText"]), //same as questions.elementAt()
+          ...(questions[_questionIndex]['answers'] as List<String>).map((answer) { // the three dots spread all the surrounding list
+            return Answer(_answerQuestion, answer);
+          }).toList()
         ],
       ),
     ));
