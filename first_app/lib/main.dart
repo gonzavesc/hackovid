@@ -19,14 +19,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   // the _ in front of the name makes it private!!
   var _questionIndex = 0;
-  void _answerQuestion() {
-    setState(() {
-      _questionIndex = _questionIndex + 1;
-    });
-    print("Answer chosen");
-  }
-
-  var questions = [
+  final questions = const [
     {
       "questionText": "What is your favourite color?",
       "answers": ["Blue", "Red", "Yellow", "White"]
@@ -40,6 +33,14 @@ class _MyAppState extends State<MyApp> {
       "answers": ["Max", "Max", "Max", "Max"]
     }
   ];
+
+  void _answerQuestion() {
+    setState(() {
+      _questionIndex = _questionIndex + 1;
+    });
+    print("Answer chosen");
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -51,15 +52,19 @@ class _MyAppState extends State<MyApp> {
           style: TextStyle(fontSize: 26),
         ),
       ),
-      body: Column(
-        children: <Widget>[
-          Question(questions[_questionIndex]
-              ["questionText"]), //same as questions.elementAt()
-          ...(questions[_questionIndex]['answers'] as List<String>).map((answer) { // the three dots spread all the surrounding list
-            return Answer(_answerQuestion, answer);
-          }).toList()
-        ],
-      ),
+      body: (_questionIndex < questions.length)
+          ? Column(
+              children: <Widget>[
+                Question(questions[_questionIndex]
+                    ["questionText"]), //same as questions.elementAt()
+                ...(questions[_questionIndex]['answers'] as List<String>)
+                    .map((answer) {
+                  // the three dots spread all the surrounding list
+                  return Answer(_answerQuestion, answer);
+                }).toList()
+              ],
+            )
+          : Center(child: Text("You did it!")),
     ));
   }
 }
