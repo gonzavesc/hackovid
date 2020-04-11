@@ -45,20 +45,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "MyApp!",
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 26),
-        ),
-      ),
-      body: (_questionIndex < _questions.length)
-          ? Quiz(
-              answerQuestion: _answerQuestion,
-              questions: _questions,
-              questionIndex: _questionIndex,
-            )
-          : Result(),
+      body: Center(child: Image.asset('assets/images/LOGO.png')) ,
     ));
   }
 }
