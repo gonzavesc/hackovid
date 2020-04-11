@@ -56,7 +56,7 @@ class _MyAppState extends State<MyApp> {
             child: TextField(),
             margin: EdgeInsets.only(left: 40, right: 40, top: 20, bottom: 20),
           ),
-          RaisedButton(onPressed: null,child: Text("Registrar-se "))
+          Container(child: RaisedButton(onPressed: _answerQuestion,child: Text("Registrar-se "), color: Color(0xFFE7578E),),margin: EdgeInsets.all(10),) 
         ],
       ),
     ));
