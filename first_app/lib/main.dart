@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './question.dart';
+import './answer.dart';
 
 // void main(){
 //   runApp(MyApp());
@@ -34,19 +35,18 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         home: Scaffold(
       appBar: AppBar(
-        title: Text("MyApp!"),
+        title: Text(
+          "MyApp!",
+          textAlign: TextAlign.center,
+          style: TextStyle(fontSize: 26),
+        ),
       ),
       body: Column(
         children: <Widget>[
           Question(questions.elementAt(_questionIndex)), //same asd questions[0]
-          RaisedButton(
-            child: Text("First option"),
-            onPressed: _answerQuestion,
-          ),
-          RaisedButton(
-            child: Text("Second option"),
-            onPressed: () => print("Second chosen"),
-          )
+          Answer(_answerQuestion, "Answer 1"),
+          Answer(_answerQuestion, "Answer 2"),
+          Answer(_answerQuestion, "Answer 3")
         ],
       ),
     ));
