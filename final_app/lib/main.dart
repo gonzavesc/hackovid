@@ -33,22 +33,28 @@ class MyHome extends StatelessWidget {
         children: <Widget>[
           Center(child: Image.asset('assets/images/LOGO.png')),
           Container(
+              alignment: Alignment.center,
               child: TextField(
                 decoration: InputDecoration(labelText: "Usuari"),
               ),
               margin: EdgeInsets.only(left: 40, right: 40, top: 1, bottom: 0),
               padding: EdgeInsets.all(0),
               decoration: BoxDecoration(
-                  border: Border.all(color: Color(0xFF345EA8), width: 50))),
+                  border: Border.all(color: Color(0xFF345EA8), width: 30),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(8),
+                      topRight: Radius.circular(8)))),
           Container(
             child: TextField(
-              obscureText: true,
-              decoration: InputDecoration(labelText: "Contrasenya"),
-            ),
+                obscureText: true,
+                decoration: InputDecoration(labelText: "Contrasenya")),
             margin: EdgeInsets.only(left: 40, right: 40, top: 0, bottom: 20),
             padding: EdgeInsets.all(0),
             decoration: BoxDecoration(
-                border: Border.all(color: Color(0xFF345EA8), width: 50)),
+                border: Border.all(color: Color(0xFF345EA8), width: 30),
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(8),
+                    bottomRight: Radius.circular(8))),
           ),
           Container(
             child: RaisedButton(
