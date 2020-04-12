@@ -12,7 +12,7 @@ class ChooseRole extends StatelessWidget {
             child: RaisedButton(
               onPressed: () {
                 // use the navigator to goto a named route
-                Navigator.of(context).pushNamed('/about');
+                Navigator.of(context).pushNamed('/usuari');
               },
               child: Text(
                 "Vull anar a comprar",

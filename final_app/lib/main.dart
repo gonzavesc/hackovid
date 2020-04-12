@@ -1,4 +1,5 @@
 import 'package:first_app/screen3.dart';
+import 'package:first_app/usuari/screen1_user.dart';
 import 'package:first_app/voluntari/screen1_vol.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         Register.routeName: (BuildContext context) => Register(),
         ChooseRole.routeName: (BuildContext context) => ChooseRole(),
-        Voluntari.routeName: (BuildContext context) => Voluntari()
+        Voluntari.routeName: (BuildContext context) => Voluntari(),
+        Usuari.routeName: (BuildContext context) => Usuari()
       },
     );
   }
