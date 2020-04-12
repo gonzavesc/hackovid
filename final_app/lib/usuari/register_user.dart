@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import 'dart:convert';
 
-String _host = "90.166.222.4";
+String _host = "IP";
 String path = 'api/order-candidate';
 
 Map jsonData = {
