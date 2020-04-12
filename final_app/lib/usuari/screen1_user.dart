@@ -25,7 +25,7 @@ class Usuari extends StatelessWidget {
               child: RaisedButton(
                 onPressed: () {
                   // use the navigator to goto a named route
-                  Navigator.of(context).pushNamed('/Voluntari');
+                  Navigator.of(context).pushNamed('/user_register');
                 },
                 child: Text("Iniciar la compra", style: TextStyle(fontSize: 28),),
                 color: Color(0xFF345EA8),
