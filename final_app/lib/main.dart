@@ -1,3 +1,4 @@
+import 'package:first_app/screen3.dart';
 import 'package:flutter/material.dart';
 
 import './screen_2.dart';
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: MyHome(),
       routes: <String, WidgetBuilder>{
-        AboutPage.routeName: (BuildContext context) => AboutPage(),
+        Register.routeName: (BuildContext context) => Register(),
+        ChooseRole.routeName: (BuildContext context) => ChooseRole()
       },
     );
   }
@@ -27,12 +29,22 @@ class MyHome extends StatelessWidget {
         children: <Widget>[
           Center(child: Image.asset('assets/images/LOGO.png')),
           Container(
-            child: TextField(),
-            margin: EdgeInsets.only(left: 40, right: 40, top: 1, bottom: 20),
-          ),
+              child: TextField(
+                decoration: InputDecoration(labelText: "Usuari"),
+              ),
+              margin: EdgeInsets.only(left: 40, right: 40, top: 1, bottom: 0),
+              padding: EdgeInsets.all(0),
+              decoration: BoxDecoration(
+                  border: Border.all(color: Color(0xFF345EA8), width: 50))),
           Container(
-            child: TextField(),
-            margin: EdgeInsets.only(left: 40, right: 40, top: 20, bottom: 20),
+            child: TextField(
+              obscureText: true,
+              decoration: InputDecoration(labelText: "Contrasenya"),
+            ),
+            margin: EdgeInsets.only(left: 40, right: 40, top: 0, bottom: 20),
+            padding: EdgeInsets.all(0),
+            decoration: BoxDecoration(
+                border: Border.all(color: Color(0xFF345EA8), width: 50)),
           ),
           Container(
             child: RaisedButton(
