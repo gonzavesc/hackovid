@@ -26,7 +26,7 @@ class ChooseRole extends StatelessWidget {
             child: RaisedButton(
               onPressed: () {
                 // use the navigator to goto a named route
-                Navigator.of(context).pushNamed('/about');
+                Navigator.of(context).pushNamed('/voluntari');
               },
               child: Text("Sóc Voluntari",
                   style: TextStyle(fontSize: 28, color: Colors.white)),

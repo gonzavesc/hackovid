@@ -1,4 +1,5 @@
 import 'package:first_app/screen3.dart';
+import 'package:first_app/voluntari/screen1_vol.dart';
 import 'package:flutter/material.dart';
 
 import './screen_2.dart';
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
       home: MyHome(),
       routes: <String, WidgetBuilder>{
         Register.routeName: (BuildContext context) => Register(),
-        ChooseRole.routeName: (BuildContext context) => ChooseRole()
+        ChooseRole.routeName: (BuildContext context) => ChooseRole(),
+        Voluntari.routeName: (BuildContext context) => Voluntari()
       },
     );
   }
