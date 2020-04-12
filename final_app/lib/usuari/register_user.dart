@@ -1,5 +1,24 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
+import 'dart:convert';
 
+String _host = "90.166.222.4";
+String path = 'api/order-candidate';
+
+Map jsonData = {
+  'orderAmount': '',
+  'lat': '41.1',
+  'lon': '0.3',
+  'contactIdentifier': ''
+};
+
+Future apiTest() async {
+  HttpClientRequest request = await HttpClient().post(_host, 8080, path) /*1*/
+    ..headers.contentType = ContentType.json /*2*/
+    ..write(jsonEncode(jsonData)); /*3*/
+  HttpClientResponse response = await request.close(); /*4*/
+  await utf8.decoder.bind(response /*5*/).forEach(print);
+}
 class UserRegister extends StatelessWidget {
   static const String routeName = "/user_register";
   String userId;
@@ -14,7 +33,7 @@ class UserRegister extends StatelessWidget {
           Container(
               alignment: Alignment.center,
               child: TextField(
-                onChanged: (str){userId=str;},
+                onChanged: (str){jsonData['contactIdentifier']=str;},
                 decoration: InputDecoration(labelText: "Identificador"),
               ),
               margin: EdgeInsets.only(left: 40, right: 40, top: 1, bottom: 0),
@@ -26,7 +45,7 @@ class UserRegister extends StatelessWidget {
                       topRight: Radius.circular(8)))),
           Container(
             child: TextField(
-              onChanged: (str)=>(quantity=str),
+              onChanged: (str)=>(jsonData['orderAmount']=str),
                 decoration: InputDecoration(labelText: "Import desitjat")),
             margin: EdgeInsets.only(left: 40, right: 40, top: 0, bottom: 20),
             padding: EdgeInsets.all(0),
@@ -36,7 +55,7 @@ class UserRegister extends StatelessWidget {
                     bottomLeft: Radius.circular(8),
                     bottomRight: Radius.circular(8))),
           ),
-          Container(child: RaisedButton(onPressed: (){print(userId); print(quantity);},child: Text("Submit"),),)
+          Container(child: RaisedButton(onPressed: (){Future a = apiTest();},child: Text("Fer comanda"),),)
         ],
       ),
     ));

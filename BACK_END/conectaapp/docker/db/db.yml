@@ -1,0 +1,11 @@
+version: '3.6'
+services:
+  database:
+    image: mysql:8.0
+    environment:
+      - MYSQL_DATABASE=conectaapp
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_USER=conectaapp_user
+      - MYSQL_PASSWORD=conectaapp_password
+    ports:
+      - 3306:3306
