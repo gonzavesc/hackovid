@@ -1,6 +1,7 @@
 import './transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:intl/intl.dart';
 
 void main() => runApp(MyApp());
 
@@ -67,9 +68,14 @@ class MyHomePage extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(tx.title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
-                          Text(tx.date.toString(),style: TextStyle(fontSize: 14,color: Colors.grey))
-                          
+                          Text(
+                            tx.title,
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                          Text(DateFormat.yMMMd().format(tx.date),
+                              style:
+                                  TextStyle(fontSize: 14, color: Colors.grey))
                         ],
                       )
                     ],
