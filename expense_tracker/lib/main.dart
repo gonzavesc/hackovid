@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
                   fontFamily: 'OpenSans',
                   fontSize: 18,
                   fontWeight: FontWeight.bold),
-                  button: TextStyle(color: Colors.white)),
+              button: TextStyle(color: Colors.white)),
           appBarTheme: AppBarTheme(
               textTheme: ThemeData.light().textTheme.copyWith(
                   title: TextStyle(
@@ -58,7 +58,8 @@ class _MyHomePageState extends State<MyHomePage> {
     }).toList();
   }
 
-  void _addNewTransaction(String txTitle, double txAmount, DateTime chosenDate) {
+  void _addNewTransaction(
+      String txTitle, double txAmount, DateTime chosenDate) {
     final newTx = Transaction(
         id: DateTime.now().toString(),
         title: txTitle,
@@ -75,6 +76,14 @@ class _MyHomePageState extends State<MyHomePage> {
         builder: (bCtx) {
           return GestureDetector(child: NewTransaction(_addNewTransaction));
         });
+  }
+
+  void _deleteTransaction(String id) {
+    setState(() {
+      _userTransactions.removeWhere((tx) {
+        return tx.id == id;
+      });
+    });
   }
 
   @override
@@ -94,9 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Chart(_recentTransactions),
-            TransactionList(
-              transactions: _userTransactions,
-            )
+            TransactionList(_userTransactions, _deleteTransaction)
           ],
         ),
       ),
