@@ -1,3 +1,5 @@
+import 'package:flutter/services.dart';
+
 import './Widgets/chart.dart';
 import 'package:expense_tracker/Widgets/transaction_list.dart';
 
@@ -7,7 +9,11 @@ import "./Models/transaction.dart";
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp,DeviceOrientation.portraitDown]);
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
