@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/services.dart';
 
 import './Widgets/chart.dart';
@@ -94,8 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
-    final isLandscape =
-        mediaQuery.orientation == Orientation.landscape;
+    final isLandscape = mediaQuery.orientation == Orientation.landscape;
     final appBar = AppBar(
       title: Text("Personal Expenses"),
       actions: <Widget>[
@@ -122,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text('Show Chart'),
-                  Switch(
+                  Switch.adaptive(
                     value: _showChart,
                     onChanged: (val) {
                       setState(() {
@@ -153,10 +154,12 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _startAddNewTransaction(context),
-        child: Icon(Icons.add),
-      ),
+      floatingActionButton: Platform.isIOS
+          ? Container()
+          : FloatingActionButton(
+              onPressed: () => _startAddNewTransaction(context),
+              child: Icon(Icons.add),
+            ),
     );
   }
 }
